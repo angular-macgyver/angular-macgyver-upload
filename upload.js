@@ -375,8 +375,7 @@ angular.module("Mac.Upload", []).
     - returns {Integer} Upload percentage
   */
   controller("macUploadProgressController", [
-    "$scope",
-    function($scope) {
+    function() {
       this.updateProgress = function(data, file) {
         file.progress = parseInt(data.loaded / data.total * 100, 10);
         return file.progress;
@@ -426,7 +425,6 @@ angular.module("Mac.Upload", []).
     "$parse",
     function($scope, attrs, $parse) {
       var filesGet, filesSet, ctrl = {};
-      window.ctrl = ctrl;
 
       filesGet = $parse(attrs.macUploadFiles);
       // Similar to how AngularJS handle unassignable variable
