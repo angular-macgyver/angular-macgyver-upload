@@ -5,6 +5,9 @@ module.exports = function(grunt) {
     },
     src: {
       background: true
+    },
+    travis: {
+      singleRun: true
     }
   });
-}
+};
