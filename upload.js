@@ -289,13 +289,13 @@ angular.module("Mac.Upload", []).
        * @name type
        * @function
        * @description
-       * Get the type of the object
+       * Get the class of the object
        * @param {Object} object Any object
-       * @returns {String} Object instance name
+       * @returns {String} Object class name
        */
-      var type = function(object) {
+      this.class = function(object) {
         return Object.prototype.toString.call(object).slice(8, -1);
-      },
+      };
 
       /**
        * @name isFileSupported
@@ -304,7 +304,7 @@ angular.module("Mac.Upload", []).
        * Check if browser support file reader
        * @returns {Boolean} if file reader is supported
        */
-      isFileSupported = function() {
+      this.isFileSupported = function() {
         return window.FileReader && window.File && window.FileList;
       };
 
@@ -316,9 +316,9 @@ angular.module("Mac.Upload", []).
        * @param {Array} files Array of files
        */
       this.readFiles = function(files) {
-        var reader, readFile;
+        var reader, readFile, self = this;
 
-        if (!isFileSupported()) {
+        if (!this.sFileSupported()) {
           return false;
         }
 
@@ -332,7 +332,8 @@ angular.module("Mac.Upload", []).
         };
 
         angular.forEach(files, function(file){
-          if (type(file) === "File") {
+          // Make sure items in the array are File class
+          if (self.class(file) === "File") {
             readFile(file);
           }
         });
