@@ -497,7 +497,7 @@ angular.module("Mac.Upload", []).
 
           $scope.$watch(attrs.macUploadOptions, function(newOptions) {
             element.fileupload("option", newOptions);
-          });
+          }, true);
         }
       };
     }
