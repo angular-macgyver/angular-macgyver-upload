@@ -19,7 +19,10 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "misc",
+    "Gruntfile.js",
+    "index.html",
+    "package.json"
   ],
   "dependencies": {
     "angular": "~1.2.12",
