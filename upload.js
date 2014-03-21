@@ -318,7 +318,7 @@ angular.module("Mac.Upload", []).
       this.readFiles = function(files) {
         var reader, readFile, self = this;
 
-        if (!this.sFileSupported()) {
+        if (!this.isFileSupported()) {
           return false;
         }
 
